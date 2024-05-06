@@ -17,8 +17,8 @@ class Supabase:
         self.client: Client = client
         self.bucket: Bucket = bucket
 
-    def get_cases(self, cases_ids: list[str]) -> list[dict]:
-        response: APIResponse = self.client.table('casesExaminations').select('*').in_('caseId', cases_ids).execute()
+    def get_cases_examinations(self, cases_ids: list[str]) -> list[dict]:
+        response: APIResponse = self.client.table('casesExaminations').select('examinationId').in_('caseId', cases_ids).execute()
         return response.data
 
     def get_images(self, examination_ids: list[str]):

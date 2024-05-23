@@ -1,19 +1,21 @@
 from dataclasses import dataclass
+from typing import Literal
 
 
 @dataclass
 class Image:
-    id: str
     source: str
+    hash: str = None
 
 
 @dataclass
 class Examination:
     id: str
-    images: list[Image]
+    images: list[Image] = None
 
 
 @dataclass
 class Case:
     id: str
-    examinations: list[Examination]
+    type: Literal['old', 'new']
+    examinations: list[Examination] = None

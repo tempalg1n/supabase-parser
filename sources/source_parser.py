@@ -3,7 +3,7 @@ import logging
 import openpyxl
 from openpyxl.workbook import Workbook
 
-FILE_PATH: str = "Таблица с дублями кейсов.xlsx"
+FILE_PATH: str = "C:\\Users\\muranovid\\Documents\\Projects\\supabase-cases-parser\\sources\\Таблица с дублями кейсов.xlsx"
 CASES_BORDER: int = 6234
 
 logger = logging.getLogger(__name__)

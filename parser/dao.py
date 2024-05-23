@@ -2,6 +2,7 @@ from postgrest import APIResponse
 
 from config import config, Bucket
 from supabase import Client
+from random import choice
 
 
 class Supabase:
@@ -21,5 +22,6 @@ class Supabase:
         response: APIResponse = self.client.table('casesExaminations').select('examinationId').in_('caseId', cases_ids).execute()
         return response.data
 
-    def get_images(self, examination_ids: list[str]):
-        pass
+    def get_examination_random_image(self, examination_id: str) -> str:
+        response: APIResponse = self.client.table('images').select('source').is_('examinationId', examination_id).execute()
+        return choice(response.data)
